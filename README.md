@@ -1,24 +1,7 @@
-# wx-pay-share
+# 架构设计
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 目录结构定义
+- 公共函数编写
+- 开发规范定义
+- 环境设置、统一请求处理、错误机制、Loading机制
+- 组件封装
