@@ -18,11 +18,13 @@ export default {
   },
   methods: {
     checkUserAuth() {
-      let openId = this.$cookies.get('openId')
+      console.log(this);
+      let openId = this.$cookie.get('openId')
+
       if (!openId) {
         window.location.href = API.wechatRedirect;
       } else {
-        this.getWechatConfig()
+        // this.getWechatConfig()
       }
     },
     getWechatConfig() {

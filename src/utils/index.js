@@ -1,3 +1,5 @@
+import wx from 'weixin-js-sdk';
+
 export default {
   getUrlParam(name) {
     let url = window.location.search
