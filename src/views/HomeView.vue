@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="header"></div>
+    <div class="nickname" v-if="userInfo">{{ userInfo.nickname }}</div>
     <div class="btn-group">
       <button class="btn">分享</button>
       <button class="btn btn-primary">充值</button>
@@ -11,9 +12,29 @@
 
 <script>
 // @ is an alias to /src'
+import API from '@/api';
+
 
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  data() {
+    return {
+      userInfo: ''
+    }
+  },
+  mounted() {
+    if (this.$cookie.get('openid')) {
+      this.getUserInfo()
+    }
+  },
+  methods: {
+    getUserInfo() {
+      this.$axios.get(API.getUserInfo).then(response => {
+        let res = response.data;
+        this.userInfo = res.data
+      })
+    }
+  }
 }
 </script>
 
@@ -31,5 +52,13 @@ export default {
   justify-content: space-around;
   align-items: center;
   gap: 0.16rem;
+}
+
+.nickname {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translatex(-50%);
+  font-size: 15px;
 }
 </style>

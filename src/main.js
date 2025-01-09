@@ -12,8 +12,9 @@ Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(VueCookie)
 
-axios.interceptors.request.use(() => {
+axios.interceptors.request.use((request) => {
   // loading,请求地址替换
+  return request
 })
 
 axios.interceptors.response.use(response => {
@@ -21,6 +22,7 @@ axios.interceptors.response.use(response => {
   if (res.code != 0) {
     alert(res.msg)
   }
+  return response
 }, function (error) {
   return Promise.reject(error)
 })

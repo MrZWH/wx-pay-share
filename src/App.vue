@@ -24,7 +24,7 @@ export default {
       if (!openId) {
         window.location.href = API.wechatRedirect;
       } else {
-        // this.getWechatConfig()
+        this.getWechatConfig()
       }
     },
     getWechatConfig() {
